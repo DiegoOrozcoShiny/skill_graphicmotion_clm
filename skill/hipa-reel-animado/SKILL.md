@@ -42,7 +42,7 @@ Pregunta: "¿Te gusta así o cambio algo?" y **no produzcas el video hasta que e
 
 ## 3. Producción (tras el OK, sin más preguntas)
 
-1. Termina la animación de cada escena (`references/estilo.md`, patrones en `references/escenas.md`, ejemplos completos en `templates/ejemplos/`).
+1. Termina la animación de cada escena (`references/estilo.md` y `references/escenas.md`).
 2. Maestro: rellena `DURACION`, `POSES`, `ACERCAMIENTOS` y `CIERRE` en `compositions/maestro.html` (`references/maestro.md`). Nunca cambies su diseño.
 3. Transiciones: `DURACION` y `WIPES` en `compositions/transiciones.html`. Cierre: `compositions/cierre.html` tal cual (texto fijo).
 4. Subtítulos: `python3 "$SKILL_DIR/scripts/gen_subtitulos.py" "$P"`. Inyección de fuentes y boca: `python3 "$SKILL_DIR/scripts/inject.py" "$P/video"`.
@@ -59,5 +59,6 @@ Solo el MP4: ruta del archivo, `open "<ruta>"` para verlo, y 3–4 líneas de qu
 
 - Maestro Edgar siempre presente, abajo a la derecha, mismo diseño (`templates/maestro.html`). La boca se mueve con la voz.
 - Solo colores, tipografías y logos HIPA (`assets/`). Cierre fijo: "MÁNDASELO a quien lo necesite · Síguenos · logo · @academia.hipa".
+- Las escenas se inventan para cada audio (`references/escenas.md`). Los ejemplos de `templates/ejemplos/` son de otro video: copia su código, nunca su contenido.
 - Cada objeto aparece en la palabra que lo nombra. Nada de texto en la zona del maestro ni bajo y = 1330 px.
 - No subas audios, fotos ni videos a internet ni a repositorios.
