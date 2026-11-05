@@ -1,0 +1,60 @@
+<template>
+  <style>
+/*FONTS*/
+@font-face{font-family:'Barlow';font-weight:700;font-display:block;src:url('assets/fonts/Barlow-700.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:800;font-display:block;src:url('assets/fonts/Barlow-800.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:900;font-display:block;src:url('assets/fonts/Barlow-900.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:500;font-display:block;src:url('assets/fonts/Figtree-500.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:700;font-display:block;src:url('assets/fonts/Figtree-700.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:800;font-display:block;src:url('assets/fonts/Figtree-800.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('assets/fonts/SpaceGrotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+/*/FONTS*/
+    #root { position: absolute; inset: 0; color: #fff; font-family: 'Figtree'; overflow: hidden; }
+    .tag { position: absolute; left: 72px; top: 196px; font: 500 32px/1 'Space Grotesk'; letter-spacing: .02em; color: rgba(255,255,255,.72); }
+    .ttl { position: absolute; left: 72px; right: 72px; top: 430px; font: 900 128px/.92 'Barlow'; text-transform: uppercase; letter-spacing: -.01em; }
+    .ln { display: block; }
+    .g { color: #64dd00; }
+    #s10-t1 { font-size: 110px; }
+
+    #s10-line { position: absolute; left: 100px; top: 814px; width: 880px; height: 10px; border-radius: 5px; background: #fff; transform-origin: 0 50%; }
+    .s10-tile { position: absolute; top: 740px; width: 200px; height: 150px; background: #fff; color: #000; border-radius: 26px; display: grid; place-items: center; font: 900 44px/1 'Barlow'; }
+    #s10-k1 { left: 100px; } #s10-k2 { left: 327px; } #s10-k3 { left: 553px; } #s10-k4 { left: 780px; background: #64dd00; }
+    #s10-edu { position: absolute; left: 100px; top: 960px; width: 880px; height: 280px; border: 8px solid #fff; border-radius: 40px; }
+    #s10-edu b { position: absolute; left: 32px; top: 22px; font: 900 54px/1 'Barlow'; letter-spacing: .02em; }
+    .s10-slot { position: absolute; top: 107px; width: 180px; height: 150px; border: 5px dashed rgba(255,255,255,.55); border-radius: 22px; }
+  </style>
+  <div id="root" data-composition-id="s10-futuro" data-width="1080" data-height="1920">
+    <div class="tag" id="s10-tag">// 07 · el futuro</div>
+    <div class="ttl" id="s10-t1"><span class="ln" id="s10-t1a">La tecnología</span><span class="ln g" id="s10-t1b">avanza</span></div>
+    <div class="ttl" id="s10-t2"><span class="ln" id="s10-t2a">Parte de la</span><span class="ln g" id="s10-t2b">educación</span></div>
+    <div id="s10-line"></div>
+    <div id="s10-edu"><b>EDUCACIÓN</b>
+      <div class="s10-slot" style="left:32px"></div><div class="s10-slot" style="left:242px"></div><div class="s10-slot" style="left:452px"></div><div class="s10-slot" id="s10-slot4" style="left:662px"></div>
+    </div>
+    <div class="s10-tile" id="s10-k1">LIBRO</div>
+    <div class="s10-tile" id="s10-k2">TV</div>
+    <div class="s10-tile" id="s10-k3">COMPU</div>
+    <div class="s10-tile" id="s10-k4">CELULAR</div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const S = 51.05, a = t => +(t - S).toFixed(3);
+  tl.fromTo(["#s10-t1a", "#s10-t1b"], { opacity: 0, filter: "blur(10px)", y: 18 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.22, ease: "expo.out", stagger: 0.9 }, a(51.3));
+  tl.fromTo("#s10-line", { scaleX: 0 }, { scaleX: 1, duration: 1.5, ease: "power1.inOut" }, a(51.5));
+  tl.fromTo(".s10-tile", { scale: 0, opacity: 0, y: 30 }, { scale: 1, opacity: 1, y: 0, duration: 0.38, ease: "back.out(2)", stagger: 0.38 }, a(51.9));
+  tl.to(["#s10-t1a", "#s10-t1b"], { opacity: 0, filter: "blur(8px)", duration: 0.16, ease: "power2.in", stagger: 0.04 }, a(53.75));
+  tl.fromTo("#s10-edu", { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, a(53.55));
+  tl.to("#s10-line", { opacity: 0, duration: 0.2 }, a(53.8));
+  // cada pieza encaja en "EDUCACIÓN"
+  [[1, 30], [2, 13], [3, -3], [4, -20]].forEach(([n, dx], i) => {
+    tl.to(`#s10-k${n}`, { x: dx + 2, y: 327, scale: 0.9, duration: 0.42, ease: "power3.inOut" }, a(53.85 + i * 0.22));
+  });
+  tl.to("#s10-slot4", { borderColor: "#64dd00", duration: 0.15 }, a(54.55));
+  tl.fromTo("#s10-k4", { rotation: 0 }, { rotation: -6, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, a(54.55));
+  tl.fromTo(["#s10-t2a", "#s10-t2b"], { opacity: 0, filter: "blur(10px)", y: 18 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.22, ease: "expo.out", stagger: 0.84 }, a(54.31));
+  tl.set({}, {}, 5.05);
+  window.__timelines["s10-futuro"] = tl;
+  </script>
+</template>

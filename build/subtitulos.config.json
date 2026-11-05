@@ -1,0 +1,7 @@
+{
+  "fix": { "CEP": "SEP", "ésta": "esta", "era": "llegará" },
+  "drop": ["Oscar"],
+  "keywords": ["salón", "maestro", "celular", "méxico", "realidad", "estados", "restricciones", "sep", "regulación",
+               "pregunta", "problema", "manera", "distraerte", "calculadora", "diccionario", "biblioteca", "laboratorio",
+               "herramienta", "aprendizaje", "predicción", "replantearse", "tecnología", "educación", "miles"]
+}

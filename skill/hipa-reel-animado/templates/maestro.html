@@ -1,0 +1,122 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #m-wrap { position: absolute; right: -40px; bottom: -80px; width: 600px; height: 795px; transform-origin: 85% 100%; }
+    #m-wrap svg { width: 100%; height: 100%; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="maestro" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="m-wrap">
+      <svg viewBox="0 30 370 490" xmlns="http://www.w3.org/2000/svg">
+        <g id="m-body">
+          <!-- brazo que señala: pivote en el hombro (150,345) -->
+          <g id="m-arm">
+            <path d="M150 345 L62 268 L36 300 L130 398 Z" fill="#fff" stroke="#000" stroke-width="6" stroke-linejoin="round"/>
+            <circle cx="48" cy="284" r="25" fill="#d9a27a" stroke="#000" stroke-width="5"/>
+            <path d="M40 270 L6 236 L18 224 L54 260 Z" fill="#d9a27a" stroke="#000" stroke-width="5" stroke-linejoin="round"/>
+          </g>
+          <!-- torso: camisa blanca -->
+          <path d="M96 520 Q104 330 188 292 L272 292 Q356 330 364 520 Z" fill="#fff" stroke="#000" stroke-width="6"/>
+          <path d="M150 420 Q160 380 176 360 M310 420 Q300 380 284 360" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" opacity=".25"/>
+          <path d="M204 246 L256 246 L258 300 L202 300 Z" fill="#d9a27a" stroke="#000" stroke-width="5"/>
+          <path d="M200 288 L230 334 L214 346 L188 302 Z M260 288 L230 334 L246 346 L272 302 Z" fill="#fff" stroke="#000" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M230 338 L230 520" stroke="#000" stroke-width="4"/>
+          <circle cx="240" cy="372" r="4" fill="#000"/><circle cx="240" cy="420" r="4" fill="#000"/><circle cx="240" cy="468" r="4" fill="#000"/>
+          <!-- cabeza -->
+          <g id="m-head">
+            <circle cx="146" cy="186" r="17" fill="#d9a27a" stroke="#000" stroke-width="5"/>
+            <circle cx="314" cy="186" r="17" fill="#d9a27a" stroke="#000" stroke-width="5"/>
+            <path d="M146 170 Q144 92 230 88 Q316 92 314 170 Q316 240 280 266 Q256 282 230 282 Q204 282 180 266 Q144 240 146 170 Z" fill="#d9a27a" stroke="#000" stroke-width="6"/>
+            <path d="M144 176 Q138 140 152 118 L166 124 Q156 146 158 176 Z M316 176 Q322 140 308 118 L294 124 Q304 146 302 176 Z" fill="#000" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M146 150 Q136 112 156 94 L160 78 L176 84 L186 66 L202 76 L214 58 L228 72 L242 56 L256 72 L270 60 L280 78 L296 72 L300 92 Q326 112 314 150 Q304 122 280 116 Q262 108 244 118 Q226 106 206 116 Q184 108 168 122 Q152 130 146 150 Z" fill="#141414" stroke="#000" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M180 150 Q198 140 220 146 M240 146 Q262 140 280 150" fill="none" stroke="#333" stroke-width="6" stroke-linecap="round" id="m-brows"/>
+            <rect x="170" y="160" width="56" height="34" rx="7" fill="#fff" fill-opacity=".3" stroke="#000" stroke-width="5"/>
+            <rect x="234" y="160" width="56" height="34" rx="7" fill="#fff" fill-opacity=".3" stroke="#000" stroke-width="5"/>
+            <path d="M226 174 L234 174 M170 170 L150 176 M290 170 L310 176" stroke="#000" stroke-width="5"/>
+            <g id="m-eyes">
+              <ellipse cx="198" cy="179" rx="6" ry="5" fill="#000"/><ellipse cx="262" cy="179" rx="6" ry="5" fill="#000"/>
+            </g>
+            <path d="M186 186 Q198 191 210 186 M250 186 Q262 191 274 186" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+            <path d="M230 190 Q248 214 236 222 Q226 226 216 218" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+            <ellipse cx="180" cy="222" rx="14" ry="8" fill="#ff0000" opacity=".12"/>
+            <ellipse cx="280" cy="222" rx="14" ry="8" fill="#ff0000" opacity=".12"/>
+            <!-- boca: se abre con la voz (pivote arriba, y=246) -->
+            <g id="m-mouth">
+              <path d="M198 246 Q230 292 262 246 Q230 254 198 246 Z" fill="#000"/>
+              <path d="M214 272 Q230 282 246 272 Q230 266 214 272 Z" fill="#ff0000" opacity=".85"/>
+              <path d="M204 248 Q230 256 256 248 L253 256 Q230 263 207 256 Z" fill="#fff"/>
+            </g>
+            <g id="m-stache">
+              <path d="M194 236 Q212 224 230 230 Q248 224 266 236 Q262 244 248 241 Q238 238 230 242 Q222 238 212 241 Q198 244 194 236 Z" fill="#2b2b2b" stroke="#000" stroke-width="3"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+
+  // --- labio sincronizado con la energía de la voz (30 fps, 0..1) ---
+  const M = /*MOUTH*/[];
+  tl.set("#m-mouth", { scaleY: 0.22, svgOrigin: "230 246" }, 0);
+  for (let i = 0; i < M.length; i++) {
+    const v = M[i];
+    tl.set("#m-mouth", { scaleY: 0.22 + 0.95 * v, svgOrigin: "230 246" }, i / 30);
+    tl.set("#m-stache", { y: -4 * v }, i / 30);
+    tl.set("#m-head", { y: -3 * v, rotation: (i % 18 < 9 ? 1 : -1) * 1.2 * v, svgOrigin: "230 280" }, i / 30);
+  }
+  tl.set("#m-mouth", { scaleY: 0.22, svgOrigin: "230 246" }, M.length / 30);
+
+  // --- parpadeo en tiempos fijos ---
+  [1.8, 5.2, 9.4, 12.1, 16.6, 19.8, 24.0, 27.5, 32.2, 35.4, 39.1, 42.7, 47.3, 50.6, 53.9, 57.2].forEach(t => {
+    tl.to("#m-eyes", { scaleY: 0.1, svgOrigin: "230 179", duration: 0.06, ease: "power2.in" }, t);
+    tl.to("#m-eyes", { scaleY: 1, svgOrigin: "230 179", duration: 0.09, ease: "power2.out" }, t + 0.08);
+  });
+
+  // --- respiración (acting idle del personaje) ---
+  for (let t = 0; t < 60; t += 3.2) {
+    tl.to("#m-body", { scaleY: 1.012, svgOrigin: "230 520", duration: 1.6, ease: "sine.inOut" }, t);
+    tl.to("#m-body", { scaleY: 1, svgOrigin: "230 520", duration: 1.6, ease: "sine.inOut" }, t + 1.6);
+  }
+
+  // --- poses del brazo (rotación en el hombro) y punch-ins ---
+  const arm = (t, r, d = 0.35, e = "back.out(1.6)") => tl.to("#m-arm", { rotation: r, svgOrigin: "150 345", duration: d, ease: e }, t);
+  tl.set("#m-arm", { rotation: 0, svgOrigin: "150 345" }, 0);
+  tl.fromTo("#m-wrap", { y: 60 }, { y: 0, duration: 0.5, ease: "back.out(1.4)" }, 0);
+  arm(3.15, 18, 0.18, "power2.out"); arm(3.4, -4, 0.2); arm(3.65, 8, 0.25);        // "maestro": saluda
+  arm(4.0, 28, 0.4);                                                             // bocadillo: gesticula
+  arm(6.0, 10, 0.3);                                                             // "guarden": señala la caja
+  arm(7.0, 0, 0.35);
+  // La pregunta: punch-in + dedo arriba
+  tl.to("#m-wrap", { scale: 1.32, x: -120, y: -60, duration: 0.45, ease: "expo.out" }, 21.14);
+  arm(21.2, 35, 0.4);
+  tl.to("#m-brows", { y: -6, duration: 0.2, ease: "power2.out" }, 21.2);
+  tl.to("#m-wrap", { scale: 1, x: 0, y: 0, duration: 0.4, ease: "power3.inOut" }, 23.1);
+  tl.to("#m-brows", { y: 0, duration: 0.2 }, 23.2);
+  arm(23.15, 0, 0.35);
+  // "Pensemos": cabeza ladeada, mano arriba
+  arm(26.98, 30, 0.4);
+  tl.to("#m-wrap", { rotation: -3, duration: 0.4, ease: "power2.out" }, 26.98);
+  tl.to("#m-wrap", { rotation: 0, duration: 0.35, ease: "power2.inOut" }, 28.1);
+  arm(28.15, 0, 0.35);
+  // "pero también": señala con energía
+  arm(31.07, -10, 0.2, "power2.out"); arm(31.3, 4, 0.3);
+  arm(40.3, 20, 0.25, "power2.out"); arm(40.6, 0, 0.3);
+  // Predicción: punch-in + dedo arriba
+  tl.to("#m-wrap", { scale: 1.32, x: -120, y: -60, duration: 0.45, ease: "expo.out" }, 43.95);
+  arm(44.0, 35, 0.4);
+  tl.to("#m-brows", { y: -6, duration: 0.2, ease: "power2.out" }, 45.3);
+  tl.to("#m-wrap", { scale: 1, x: 0, y: 0, duration: 0.4, ease: "power3.inOut" }, 46.7);
+  tl.to("#m-brows", { y: 0, duration: 0.2 }, 46.8);
+  arm(46.75, 0, 0.35);
+  // Prohibido se replantea: gesto de duda
+  arm(50.2, 30, 0.3); arm(50.7, 0, 0.35);
+  // CTA: señala hacia el texto, abajo a la izquierda
+  arm(56.1, -38, 0.45);
+  tl.to("#m-wrap", { y: -20, duration: 0.4, ease: "back.out(1.6)" }, 56.1);
+
+  tl.set({}, {}, 60);
+  window.__timelines["maestro"] = tl;
+  </script>
+</template>

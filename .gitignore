@@ -1,0 +1,19 @@
+# Material personal: no se sube (voz, transcripciones, foto del maestro, renders)
+audio/
+render/
+assets/ref-maestro-edgar.jpg
+video/assets/audio/voz.wav
+storyboard/storyboard.html
+
+# Generados / temporales
+build/check.json
+build/render_sheet.png
+build/_*
+video/.hyperframes/
+video/.media/
+video/renders/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

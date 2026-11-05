@@ -1,0 +1,46 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #w-grid { position: absolute; left: 0; top: 0; width: 1080px; height: 1980px; display: grid;
+              grid-template-columns: repeat(6, 180px); grid-auto-rows: 180px; }
+    .wq { width: 180px; height: 180px; border-radius: 26px; background: #64dd00; }
+  </style>
+  <div id="root" data-composition-id="transiciones" data-width="1080" data-height="1920" data-layout-allow-overflow data-layout-ignore>
+    <div id="w-grid">
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+      <div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div><div class="wq"></div>
+    </div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  // Wipe modular: los cuadrados del logo cubren la pantalla en el corte y se retiran.
+  // [tiempo del corte, color, origen del barrido]
+  const WIPES = [
+    [7.20, "#64dd00", "start"],
+    [11.85, "#ffffff", "end"],
+    [23.30, "#002aff", "center"],
+    [31.15, "#64dd00", "start"],
+    [46.88, "#002aff", "center"],
+    [56.10, "#64dd00", "end"],
+  ];
+  WIPES.forEach(([t, c, from], i) => {
+    tl.set(".wq", { backgroundColor: c }, t - 0.31);
+    tl.fromTo(".wq", { scale: 0, rotation: -45 }, { scale: 1.06, rotation: 0, duration: 0.2, ease: "power3.out",
+      stagger: { grid: [11, 6], from, amount: 0.1 }, immediateRender: i === 0 }, t - 0.30);
+    tl.to(".wq", { scale: 0, rotation: 45, duration: 0.2, ease: "power3.in",
+      stagger: { grid: [11, 6], from, amount: 0.1 } }, t + 0.02);
+  });
+  tl.set({}, {}, 60);
+  window.__timelines["transiciones"] = tl;
+  </script>
+</template>

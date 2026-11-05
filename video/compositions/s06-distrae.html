@@ -1,0 +1,63 @@
+<template>
+  <style>
+/*FONTS*/
+@font-face{font-family:'Barlow';font-weight:700;font-display:block;src:url('assets/fonts/Barlow-700.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:800;font-display:block;src:url('assets/fonts/Barlow-800.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:900;font-display:block;src:url('assets/fonts/Barlow-900.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:500;font-display:block;src:url('assets/fonts/Figtree-500.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:700;font-display:block;src:url('assets/fonts/Figtree-700.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:800;font-display:block;src:url('assets/fonts/Figtree-800.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('assets/fonts/SpaceGrotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+/*/FONTS*/
+    #root { position: absolute; inset: 0; color: #fff; font-family: 'Figtree'; overflow: hidden; }
+    .tag { position: absolute; left: 72px; top: 196px; font: 500 32px/1 'Space Grotesk'; letter-spacing: .02em; color: rgba(255,255,255,.72); }
+    .ttl { position: absolute; left: 72px; right: 72px; top: 430px; font: 900 128px/.92 'Barlow'; text-transform: uppercase; letter-spacing: -.01em; }
+    .ln { display: block; }
+    .g { color: #64dd00; }
+    .stamp { position: absolute; font: 900 92px/1 'Barlow'; text-transform: uppercase; color: #ff0000; border: 12px solid #ff0000; border-radius: 18px; padding: 12px 28px 4px; background: #fff; white-space: nowrap; }
+
+    #s6-phone { position: absolute; left: 290px; top: 620px; width: 360px; height: 660px; background: #000; border-radius: 58px; padding: 16px; }
+    #s6-screen { position: relative; width: 100%; height: 100%; background: #fff; border-radius: 44px; overflow: hidden; padding: 64px 18px 0; }
+    .s6-n { display: flex; align-items: center; gap: 14px; height: 74px; margin-bottom: 12px; padding: 0 16px; background: #000; border-radius: 22px; }
+    .s6-n i { width: 40px; height: 40px; border-radius: 12px; background: #64dd00; flex: none; }
+    .s6-n i.b { background: #002aff; }
+    .s6-n b { flex: 1; height: 12px; border-radius: 6px; background: #fff; opacity: .8; }
+    .s6-n em { font: 800 28px/1 'Figtree'; font-style: normal; color: #fff; }
+    #s6-stamp { left: 96px; top: 1040px; font-size: 84px; }
+    #s6-ok { position: absolute; left: 640px; top: 640px; display: flex; align-items: center; gap: 14px; padding: 14px 26px 14px 14px; background: #fff; color: #000; border-radius: 999px; font: 900 46px/1 'Barlow'; white-space: nowrap; }
+    #s6-ok svg { width: 64px; height: 64px; }
+  </style>
+  <div id="root" data-composition-id="s06-distrae" data-width="1080" data-height="1920">
+    <div class="tag" id="s6-tag">// 04 · seamos honestos</div>
+    <div class="ttl" id="s6-t1"><span class="ln" id="s6-t1a">Pensemos…</span></div>
+    <div class="ttl" id="s6-t2"><span class="ln" id="s6-t2a">Sí, <span class="g">distrae</span></span></div>
+    <div id="s6-phone" data-layout-allow-overlap>
+      <div id="s6-screen">
+        <div class="s6-n" id="s6-n1"><i></i><b></b><em>99+</em></div>
+        <div class="s6-n" id="s6-n2"><i class="b"></i><b></b><em>12</em></div>
+        <div class="s6-n" id="s6-n3"><i></i><b></b><em>nuevo</em></div>
+        <div class="s6-n" id="s6-n4"><i class="b"></i><b></b><em>47</em></div>
+        <div class="s6-n" id="s6-n5"><i></i><b></b><em>8</em></div>
+        <div class="s6-n" id="s6-n6"><i class="b"></i><b></b><em>99+</em></div>
+      </div>
+    </div>
+    <div class="stamp" id="s6-stamp" data-layout-allow-overlap data-layout-allow-occlusion>Distracción</div>
+    <div id="s6-ok"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#64dd00"/><path d="M18 33 L28 43 L47 22" fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>Es cierto</div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const S = 26.95, a = t => +(t - S).toFixed(3);
+  tl.fromTo("#s6-t1a", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "expo.out" }, a(26.98));
+  tl.fromTo("#s6-phone", { y: 700, rotation: 8, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, a(27.9));
+  tl.to("#s6-t1a", { opacity: 0, filter: "blur(8px)", duration: 0.16, ease: "power2.in" }, a(28.9));
+  tl.fromTo(".s6-n", { y: -60, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)", stagger: 0.22 }, a(28.2));
+  tl.fromTo("#s6-phone", { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: 9 }, a(29.0));
+  tl.fromTo("#s6-t2a", { opacity: 0, filter: "blur(10px)", y: 18 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.22, ease: "expo.out" }, a(29.1));
+  tl.fromTo("#s6-stamp", { scale: 2.4, opacity: 0, rotation: 0 }, { scale: 1, opacity: 1, rotation: -8, duration: 0.24, ease: "power4.in" }, a(29.15));
+  tl.fromTo("#s6-ok", { scale: 0.3, opacity: 0, x: 120 }, { scale: 1, opacity: 1, x: 0, duration: 0.35, ease: "back.out(2)" }, a(30.3));
+  tl.set({}, {}, 4.2);
+  window.__timelines["s06-distrae"] = tl;
+  </script>
+</template>

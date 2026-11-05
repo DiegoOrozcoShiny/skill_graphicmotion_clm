@@ -1,0 +1,64 @@
+<template>
+  <style>
+/*FONTS*/
+@font-face{font-family:'Barlow';font-weight:700;font-display:block;src:url('assets/fonts/Barlow-700.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:800;font-display:block;src:url('assets/fonts/Barlow-800.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:900;font-display:block;src:url('assets/fonts/Barlow-900.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:500;font-display:block;src:url('assets/fonts/Figtree-500.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:700;font-display:block;src:url('assets/fonts/Figtree-700.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:800;font-display:block;src:url('assets/fonts/Figtree-800.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('assets/fonts/SpaceGrotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+/*/FONTS*/
+    #root { position: absolute; inset: 0; color: #fff; font-family: 'Figtree'; overflow: hidden; }
+    .tag { position: absolute; left: 72px; top: 196px; font: 500 32px/1 'Space Grotesk'; letter-spacing: .02em; color: rgba(255,255,255,.72); }
+    .ttl { position: absolute; left: 72px; right: 72px; top: 430px; font: 900 128px/.92 'Barlow'; text-transform: uppercase; letter-spacing: -.01em; }
+    .ln { display: block; }
+    .g { color: #64dd00; }
+    .stamp { position: absolute; font: 900 92px/1 'Barlow'; text-transform: uppercase; color: #ff0000; border: 12px solid #ff0000; border-radius: 18px; padding: 12px 28px 4px; background: #fff; white-space: nowrap; }
+
+    #s9-clock { position: absolute; left: 390px; top: 760px; width: 300px; height: 300px; overflow: visible; }
+    #s9-stampw { position: absolute; left: 120px; top: 820px; width: 760px; height: 200px; }
+    #s9-stamp { left: 0; top: 0; font-size: 126px; }
+    #s9-crack { position: absolute; left: 100px; top: 790px; width: 760px; height: 240px; overflow: visible; }
+    #s9-hand { position: absolute; left: 90px; top: 1090px; font: 900 108px/1 'Barlow'; color: #64dd00; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s09-replantear" data-width="1080" data-height="1920">
+    <div class="tag" id="s9-tag">// 06 · la predicción</div>
+    <div class="ttl" id="s9-t1"><span class="ln" id="s9-t1a">Llegará el</span><span class="ln g" id="s9-t1b">momento</span></div>
+    <svg id="s9-clock" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="150" r="130" fill="#fff"/>
+      <circle cx="150" cy="150" r="130" fill="none" stroke="#000" stroke-width="12"/>
+      <rect x="140" y="34" width="20" height="28" rx="5" fill="#000"/><rect x="140" y="238" width="20" height="28" rx="5" fill="#000"/>
+      <rect x="34" y="140" width="28" height="20" rx="5" fill="#000"/><rect x="238" y="140" width="28" height="20" rx="5" fill="#000"/>
+      <rect id="s9-hr" x="143" y="92" width="14" height="66" rx="7" fill="#000"/>
+      <rect id="s9-mn" x="145" y="56" width="10" height="102" rx="5" fill="#002aff"/>
+      <circle cx="150" cy="150" r="14" fill="#64dd00"/>
+    </svg>
+    <div id="s9-stampw"><div class="stamp" id="s9-stamp">Prohibido</div></div>
+    <svg id="s9-crack" viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg">
+      <path id="s9-crackp" d="M20 40 L140 110 L210 70 L330 150 L400 100 L520 190 L590 130 L740 210" fill="none" stroke="#000" stroke-width="14" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+    </svg>
+    <div id="s9-hand">¿REPLANTEAR?</div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const S = 46.88, a = t => +(t - S).toFixed(3);
+  tl.fromTo(["#s9-t1a", "#s9-t1b"], { opacity: 0, filter: "blur(10px)", y: 18 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.22, ease: "expo.out", stagger: 0.62 }, a(47.06));
+  // el reloj avanza
+  tl.fromTo("#s9-clock", { scale: 0, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, a(47.5));
+  tl.fromTo("#s9-mn", { rotation: 0, svgOrigin: "150 150" }, { rotation: 720, svgOrigin: "150 150", duration: 1.2, ease: "power2.inOut" }, a(47.7));
+  tl.fromTo("#s9-hr", { rotation: 0, svgOrigin: "150 150" }, { rotation: 60, svgOrigin: "150 150", duration: 1.2, ease: "power2.inOut" }, a(47.7));
+  tl.to("#s9-clock", { scale: 0.6, opacity: 0, duration: 0.16, ease: "power2.in" }, a(48.78));
+  // el sello vuelve... y se agrieta
+  tl.fromTo("#s9-stamp", { scale: 2.4, opacity: 0, rotation: 0 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.24, ease: "power4.in" }, a(48.91));
+  tl.fromTo("#s9-stampw", { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: 3 }, a(49.15));
+  tl.to("#s9-crackp", { strokeDashoffset: 0, duration: 0.28, ease: "power3.out" }, a(50.19));
+  tl.to(["#s9-stampw", "#s9-crack"], { rotation: -16, y: 140, scale: 0.85, duration: 0.45, ease: "power3.in" }, a(50.4));
+  tl.to(["#s9-stampw", "#s9-crack"], { opacity: 0, duration: 0.15, ease: "none" }, a(50.72));
+  tl.fromTo("#s9-hand", { clipPath: "inset(0% 100% 0% 0%)", rotation: -6 }, { clipPath: "inset(0% 0% 0% 0%)", rotation: -6, duration: 0.5, ease: "power1.inOut" }, a(50.45));
+  tl.set({}, {}, 4.17);
+  window.__timelines["s09-replantear"] = tl;
+  </script>
+</template>

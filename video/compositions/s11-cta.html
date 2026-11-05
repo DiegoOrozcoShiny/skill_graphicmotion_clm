@@ -1,0 +1,46 @@
+<template>
+  <style>
+/*FONTS*/
+@font-face{font-family:'Barlow';font-weight:700;font-display:block;src:url('assets/fonts/Barlow-700.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:800;font-display:block;src:url('assets/fonts/Barlow-800.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:900;font-display:block;src:url('assets/fonts/Barlow-900.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:500;font-display:block;src:url('assets/fonts/Figtree-500.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:700;font-display:block;src:url('assets/fonts/Figtree-700.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:800;font-display:block;src:url('assets/fonts/Figtree-800.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('assets/fonts/SpaceGrotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+/*/FONTS*/
+    #root { position: absolute; inset: 0; color: #fff; font-family: 'Figtree'; overflow: hidden; }
+    .tag { position: absolute; left: 72px; top: 196px; font: 500 32px/1 'Space Grotesk'; letter-spacing: .02em; color: rgba(255,255,255,.72); }
+    #s11-t1 { position: absolute; left: 72px; top: 380px; font: 900 158px/1 'Barlow'; color: #64dd00; letter-spacing: -.01em; }
+    #s11-t2 { position: absolute; left: 72px; right: 72px; top: 560px; font: 800 80px/1.04 'Barlow'; text-transform: uppercase; }
+    .s11-w { display: inline-block; }
+    #s11-share { position: absolute; left: 72px; top: 1000px; width: 150px; height: 150px; overflow: visible; }
+    #s11-logo { position: absolute; left: 72px; top: 1190px; width: 330px; height: auto; }
+    #s11-handle { position: absolute; left: 430px; top: 1236px; font: 700 40px/1 'Figtree'; }
+  </style>
+  <div id="root" data-composition-id="s11-cta" data-width="1080" data-height="1920">
+    <div class="tag" id="s11-tag">// 08 · compártelo</div>
+    <div id="s11-t1">MÁNDASELO</div>
+    <div id="s11-t2"><span class="s11-w">a</span> <span class="s11-w">ese</span> <span class="s11-w">maestro</span> <span class="s11-w">que</span> <span class="s11-w">no</span> <span class="s11-w">deja</span> <span class="s11-w">usar</span> <span class="s11-w">el</span> <span class="s11-w" style="color:#64dd00">celular</span> <span class="s11-w">en</span> <span class="s11-w">clase</span></div>
+    <svg id="s11-share" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="75" cy="75" r="72" fill="#fff"/>
+      <path d="M34 72 L114 38 L92 116 L72 88 Z" fill="#002aff" stroke="#002aff" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M72 88 L114 38" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    <img id="s11-logo" src="assets/img/logo-hipa-blanco.png" alt="Academia HIPA">
+    <div id="s11-handle">@academia.hipa</div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const S = 56.1, a = t => +(t - S).toFixed(3);
+  tl.fromTo("#s11-t1", { scale: 1.6, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.in" }, a(56.25));
+  tl.fromTo(".s11-w", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out", stagger: 0.05 }, a(56.55));
+  tl.fromTo("#s11-share", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2.2)" }, a(57.3));
+  tl.to("#s11-share", { x: 18, y: -18, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, a(57.9));
+  tl.fromTo(["#s11-logo", "#s11-handle"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out", stagger: 0.12 }, a(57.75));
+  tl.set({}, {}, 3.9);
+  window.__timelines["s11-cta"] = tl;
+  </script>
+</template>

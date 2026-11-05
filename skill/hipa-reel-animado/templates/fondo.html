@@ -1,0 +1,24 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #002aff; overflow: hidden; }
+    #f-grid { position: absolute; left: 0; top: -240px; width: 1080px; height: 2400px; }
+  </style>
+  <div id="root" data-composition-id="fondo" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <!-- cuadrícula de cuadrados modulares HIPA -->
+    <svg id="f-grid" viewBox="0 0 1080 2400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="f-pat" width="120" height="120" patternUnits="userSpaceOnUse">
+          <rect x="10" y="10" width="100" height="100" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="3"/>
+        </pattern>
+      </defs>
+      <rect width="1080" height="2400" fill="url(#f-pat)"/>
+    </svg>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  // deriva lenta y constante del fondo (240 px en 60 s)
+  tl.fromTo("#f-grid", { y: 0 }, { y: 240, duration: 60, ease: "none" }, 0);
+  window.__timelines["fondo"] = tl;
+  </script>
+</template>
