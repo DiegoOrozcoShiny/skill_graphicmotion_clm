@@ -1,4 +1,9 @@
-# El celular en clase · Reel animado Academia HIPA
+# skill_graphicmotion_clm
+Skill para crear videos en graphic motion para chula la matematica.
+
+Incluye el skill `hipa-reel-animado` (carpeta `skill/`) y, como ejemplo completo, el primer video hecho con él:
+
+## Ejemplo: El celular en clase · Reel animado Academia HIPA
 
 Reel vertical (1080×1920, 60 s) 100 % animado en motion graphics 2D. Lleva la voz en off original, un avatar del maestro Edgar que explica como en clase, subtítulos palabra por palabra y efectos de sonido. Está hecho con [HyperFrames](https://hyperframes.heygen.com), que convierte HTML + GSAP en MP4.
 
