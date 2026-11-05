@@ -1,0 +1,125 @@
+<template>
+  <style>
+/*FONTS*/
+@font-face{font-family:'Barlow';font-weight:700;font-display:block;src:url('assets/fonts/Barlow-700.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:800;font-display:block;src:url('assets/fonts/Barlow-800.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:900;font-display:block;src:url('assets/fonts/Barlow-900.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:500;font-display:block;src:url('assets/fonts/Figtree-500.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:700;font-display:block;src:url('assets/fonts/Figtree-700.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:800;font-display:block;src:url('assets/fonts/Figtree-800.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('assets/fonts/SpaceGrotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+/*/FONTS*/
+    #root { position: absolute; inset: 0; color: #fff; font-family: 'Figtree'; overflow: hidden; }
+    .tag { position: absolute; left: 72px; top: 196px; font: 500 32px/1 'Space Grotesk'; letter-spacing: .02em; color: rgba(255,255,255,.72); }
+    .ttl { position: absolute; left: 72px; right: 72px; top: 430px; font: 900 128px/.92 'Barlow'; text-transform: uppercase; letter-spacing: -.01em; }
+    .ln { display: block; }
+    .g { color: #64dd00; }
+
+    #s7-phone { position: absolute; left: 72px; top: 740px; width: 320px; height: 560px; background: #000; border-radius: 52px; padding: 15px; }
+    #s7-screen { position: relative; width: 100%; height: 100%; background: #fff; border-radius: 38px; overflow: hidden; }
+    .s7-sc { position: absolute; inset: 0; display: grid; place-items: center; color: #000; opacity: 0; }
+    #s7-sc1 { align-content: start; padding: 54px 22px 0; gap: 22px; }
+    #s7-sc1 .disp { width: 100%; text-align: right; font: 900 68px/1 'Barlow'; padding: 14px 18px; background: #000; color: #64dd00; border-radius: 18px; }
+    #s7-keys { display: grid; grid-template-columns: repeat(3, 66px); gap: 14px; }
+    #s7-keys i { height: 56px; border-radius: 14px; background: #000; }
+    #s7-keys i.v { background: #002aff; }
+    #s7-sc2 { align-content: center; gap: 18px; }
+    #s7-sc2 b { font: 900 150px/1 'Barlow'; }
+    #s7-sc2 i { display: block; width: 200px; height: 14px; border-radius: 7px; background: #000; opacity: .18; }
+    #s7-sc3 svg, #s7-sc4 svg, #s7-sc5 svg { width: 230px; height: 230px; overflow: visible; }
+
+    #s7-list { position: absolute; left: 440px; top: 770px; width: 580px; }
+    .s7-row { display: flex; align-items: center; gap: 24px; height: 118px; font: 800 58px/1 'Barlow'; text-transform: uppercase; }
+    .s7-num { position: relative; width: 80px; height: 80px; flex: none; border: 6px solid #fff; border-radius: 18px; display: grid; place-items: center; font: 900 46px/1 'Barlow'; }
+    .s7-ok { position: absolute; inset: -6px; border-radius: 18px; background: #64dd00; display: grid; place-items: center; opacity: 0; }
+    .s7-ok svg { width: 54px; height: 54px; }
+
+    .s7-ic { position: absolute; width: 130px; height: 130px; background: #fff; color: #000; border-radius: 30px; display: grid; place-items: center; font: 900 56px/1 'Barlow'; }
+    .s7-ic svg { width: 76px; height: 76px; }
+    #s7-i1 { left: 640px; top: 760px; } #s7-i2 { left: 820px; top: 860px; } #s7-i3 { left: 660px; top: 960px; } #s7-i4 { left: 840px; top: 1060px; }
+
+    #s7-blab { position: absolute; left: 100px; top: 1200px; width: 600px; display: flex; justify-content: space-between; font: 700 34px/1 'Space Grotesk'; letter-spacing: .04em; }
+    #s7-bar { position: absolute; left: 100px; top: 1250px; width: 600px; height: 60px; border: 6px solid #fff; border-radius: 20px; padding: 7px; }
+    #s7-fill { width: 100%; height: 100%; border-radius: 12px; background: #64dd00; transform-origin: 0 50%; }
+  </style>
+  <div id="root" data-composition-id="s07-giro" data-width="1080" data-height="1920">
+    <div class="tag" id="s7-tag">// 05 · el giro</div>
+    <div class="ttl" id="s7-t1"><span class="ln" id="s7-t1a">Pero</span><span class="ln g" id="s7-t1b">también…</span></div>
+    <div class="ttl" id="s7-t2"><span class="ln" id="s7-t2a">Una</span><span class="ln g" id="s7-t2b">herramienta</span></div>
+
+    <div id="s7-phone">
+      <div id="s7-screen">
+        <div class="s7-sc" id="s7-sc1">
+          <div class="disp">2+2=4</div>
+          <div id="s7-keys"><i></i><i></i><i class="v"></i><i></i><i></i><i class="v"></i><i></i><i></i><i class="v"></i><i></i><i></i><i class="v"></i></div>
+        </div>
+        <div class="s7-sc" id="s7-sc2"><b>Aa</b><i></i><i style="width:160px"></i><i style="width:180px"></i></div>
+        <div class="s7-sc" id="s7-sc3">
+          <svg viewBox="0 0 230 230"><rect x="14" y="40" width="30" height="160" rx="8" fill="#000"/><rect x="50" y="70" width="30" height="130" rx="8" fill="#002aff"/><rect x="86" y="30" width="30" height="170" rx="8" fill="#64dd00"/><rect x="122" y="60" width="30" height="140" rx="8" fill="#000"/><rect x="158" y="46" width="30" height="154" rx="8" fill="#002aff" transform="rotate(10 173 200)"/><rect x="6" y="204" width="218" height="12" rx="6" fill="#000"/></svg>
+        </div>
+        <div class="s7-sc" id="s7-sc4">
+          <svg viewBox="0 0 230 230"><path d="M88 20 L142 20 M96 20 L96 92 L42 196 Q36 210 52 210 L178 210 Q194 210 188 196 L134 92 L134 20" fill="none" stroke="#000" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/><path d="M68 150 L162 150 L184 198 Q186 204 178 204 L52 204 Q44 204 46 198 Z" fill="#64dd00"/><circle cx="104" cy="122" r="10" fill="#002aff"/><circle cx="126" cy="100" r="7" fill="#002aff"/></svg>
+        </div>
+        <div class="s7-sc" id="s7-sc5">
+          <svg viewBox="0 0 116 116"><rect class="s7-h" x="4" y="4" width="36" height="36" rx="6" fill="none" stroke="#002aff" stroke-width="7"/><rect class="s7-h" x="40" y="40" width="36" height="36" rx="6" fill="none" stroke="#002aff" stroke-width="7"/><rect class="s7-h" x="4" y="76" width="36" height="36" rx="6" fill="none" stroke="#002aff" stroke-width="7"/><rect class="s7-h" x="76" y="76" width="36" height="36" rx="6" fill="none" stroke="#002aff" stroke-width="7"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div id="s7-list">
+      <div class="s7-row" id="s7-r1"><div class="s7-num">1<div class="s7-ok" id="s7-k1"><svg viewBox="0 0 54 54"><path d="M12 28 L23 39 L43 16" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>Calculadora</div>
+      <div class="s7-row" id="s7-r2"><div class="s7-num">2<div class="s7-ok" id="s7-k2"><svg viewBox="0 0 54 54"><path d="M12 28 L23 39 L43 16" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>Diccionario</div>
+      <div class="s7-row" id="s7-r3"><div class="s7-num">3<div class="s7-ok" id="s7-k3"><svg viewBox="0 0 54 54"><path d="M12 28 L23 39 L43 16" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>Biblioteca</div>
+      <div class="s7-row" id="s7-r4"><div class="s7-num">4<div class="s7-ok" id="s7-k4"><svg viewBox="0 0 54 54"><path d="M12 28 L23 39 L43 16" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>Laboratorio</div>
+    </div>
+
+    <div class="s7-ic" id="s7-i1">÷</div>
+    <div class="s7-ic" id="s7-i2">Aa</div>
+    <div class="s7-ic" id="s7-i3"><svg viewBox="0 0 76 76"><rect x="6" y="10" width="14" height="56" rx="4" fill="#000"/><rect x="24" y="20" width="14" height="46" rx="4" fill="#002aff"/><rect x="42" y="6" width="14" height="60" rx="4" fill="#64dd00"/><rect x="2" y="68" width="72" height="6" rx="3" fill="#000"/></svg></div>
+    <div class="s7-ic" id="s7-i4"><svg viewBox="0 0 76 76"><path d="M28 6 L48 6 M31 6 L31 30 L10 64 Q8 70 14 70 L62 70 Q68 70 66 64 L45 30 L45 6" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 50 L56 50 L64 66 L12 66 Z" fill="#64dd00"/></svg></div>
+
+    <div id="s7-blab"><span>APRENDIZAJE</span><span id="s7-pct">0%</span></div>
+    <div id="s7-bar"><div id="s7-fill"></div></div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const S = 31.15, a = t => +(t - S).toFixed(3);
+  const wordsIn = (els, t, gap) => tl.fromTo(els, { opacity: 0, filter: "blur(10px)", y: 18 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.22, ease: "expo.out", stagger: gap }, a(t));
+
+  // Parte A: el celular se transforma
+  wordsIn(["#s7-t1a", "#s7-t1b"], 31.3, 0.18);
+  tl.fromTo("#s7-phone", { y: 700, rotation: -10, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, a(31.5));
+  tl.fromTo(".s7-row", { opacity: 0, x: 80 }, { opacity: 0.35, x: 0, duration: 0.35, ease: "expo.out", stagger: 0.07 }, a(31.85));
+  const STEPS = [[33.75, 1], [34.80, 2], [35.96, 3], [36.76, 4]];
+  STEPS.forEach(([t, n], i) => {
+    if (i > 0) tl.to(`#s7-sc${n - 1}`, { opacity: 0, scale: 0.8, duration: 0.12, ease: "power2.in" }, a(t - 0.05));
+    tl.fromTo(`#s7-sc${n}`, { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, a(t));
+    tl.to(`#s7-r${n}`, { opacity: 1, duration: 0.15, ease: "power2.out" }, a(t));
+    tl.fromTo(`#s7-k${n}`, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2.6)", immediateRender: false }, a(t + 0.02));
+  });
+
+  // Parte B: una herramienta para aprender
+  tl.to(["#s7-t1a", "#s7-t1b"], { opacity: 0, filter: "blur(8px)", duration: 0.16, ease: "power2.in", stagger: 0.04 }, a(37.7));
+  tl.to("#s7-list", { opacity: 0, x: 160, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, a(37.7));
+  tl.to("#s7-phone", { x: 308, y: -55, scale: 0.78, duration: 0.6, ease: "power3.inOut" }, a(37.85));
+  tl.fromTo(".s7-ic", { scale: 0, opacity: 0, rotation: -20 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.35, ease: "back.out(2)", stagger: 0.12 }, a(38.0));
+  tl.to("#s7-i1", { x: -150, y: 230, scale: 0.15, opacity: 0, duration: 0.42, ease: "power3.in" }, a(38.9));
+  tl.to("#s7-i2", { x: -330, y: 130, scale: 0.15, opacity: 0, duration: 0.42, ease: "power3.in" }, a(39.02));
+  tl.to("#s7-i3", { x: -170, y: 30, scale: 0.15, opacity: 0, duration: 0.42, ease: "power3.in" }, a(39.14));
+  tl.to("#s7-i4", { x: -350, y: -70, scale: 0.15, opacity: 0, duration: 0.42, ease: "power3.in" }, a(39.26));
+  tl.to("#s7-sc4", { opacity: 0, scale: 0.6, duration: 0.15, ease: "power2.in" }, a(39.3));
+  tl.set("#s7-sc5", { opacity: 1 }, a(39.45));
+  tl.fromTo(".s7-h", { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2.4)", stagger: 0.12 }, a(39.5));
+  tl.to(".s7-h", { fill: "#64dd00", stroke: "#64dd00", duration: 0.2, ease: "none", stagger: 0.06 }, a(40.32));
+  wordsIn(["#s7-t2a", "#s7-t2b"], 38.86, 1.46);
+  tl.fromTo(["#s7-blab", "#s7-bar"], { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out", stagger: 0.08 }, a(41.4));
+  tl.fromTo("#s7-fill", { scaleX: 0 }, { scaleX: 1, duration: 1.45, ease: "power2.inOut" }, a(42.34));
+  const pct = { v: 0 };
+  tl.fromTo(pct, { v: 0 }, { v: 100, duration: 1.45, ease: "power2.inOut",
+    onUpdate: () => { const el = document.getElementById("s7-pct"); if (el) el.textContent = Math.round(pct.v) + "%"; } }, a(42.34));
+  tl.set({}, {}, 12.8);
+  window.__timelines["s07-giro"] = tl;
+  </script>
+</template>

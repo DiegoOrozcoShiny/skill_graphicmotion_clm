@@ -17,3 +17,6 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# Efectos de la librería de HyperFrames: se copian desde el skill media-use (setup_project.py)
+video/assets/audio/sfx/

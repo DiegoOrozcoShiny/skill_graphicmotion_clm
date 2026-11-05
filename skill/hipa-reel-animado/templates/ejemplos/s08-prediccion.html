@@ -1,0 +1,82 @@
+<template>
+  <style>
+/*FONTS*/
+@font-face{font-family:'Barlow';font-weight:700;font-display:block;src:url('assets/fonts/Barlow-700.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:800;font-display:block;src:url('assets/fonts/Barlow-800.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:900;font-display:block;src:url('assets/fonts/Barlow-900.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:500;font-display:block;src:url('assets/fonts/Figtree-500.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:700;font-display:block;src:url('assets/fonts/Figtree-700.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:800;font-display:block;src:url('assets/fonts/Figtree-800.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('assets/fonts/SpaceGrotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+/*/FONTS*/
+    #root { position: absolute; inset: 0; color: #fff; font-family: 'Figtree'; overflow: hidden; background: #000; }
+    .tag { position: absolute; left: 72px; top: 196px; font: 500 32px/1 'Space Grotesk'; letter-spacing: .02em; color: rgba(255,255,255,.72); }
+    .ttl { position: absolute; left: 72px; right: 72px; top: 430px; font: 900 128px/.92 'Barlow'; text-transform: uppercase; letter-spacing: -.01em; }
+    .ln { display: block; }
+    .g { color: #64dd00; }
+    #s8-stamp { position: absolute; left: 80px; top: 590px; font: 900 88px/1 'Barlow'; color: #64dd00; border: 12px solid #64dd00; border-radius: 18px; padding: 12px 28px 4px; white-space: nowrap; }
+    #s8-ball { position: absolute; left: 60px; top: 760px; width: 440px; height: 500px; overflow: visible; }
+    .s8-c { fill: none; stroke: #fff; stroke-width: 5; }
+    .s8-c.on { fill: #64dd00; stroke: #64dd00; }
+  </style>
+  <div id="root" data-composition-id="s08-prediccion" data-width="1080" data-height="1920">
+    <div class="tag" id="s8-tag">// 06 · la predicción</div>
+    <div class="ttl" id="s8-t1"><span class="ln" id="s8-t1a">Me atrevo…</span></div>
+    <div id="s8-stamp">Predicción</div>
+    <!-- bola de cristal hecha de cuadrados modulares -->
+    <svg id="s8-ball" viewBox="0 0 440 500" xmlns="http://www.w3.org/2000/svg">
+      <g id="s8-orb"><!--BALL-->
+<rect class="s8-c" x="132" y="8" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="194" y="8" width="52" height="52" rx="10"/>
+        <rect class="s8-c on" x="256" y="8" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="70" y="70" width="52" height="52" rx="10"/>
+        <rect class="s8-c on" x="132" y="70" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="194" y="70" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="256" y="70" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="318" y="70" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="8" y="132" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="70" y="132" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="132" y="132" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="194" y="132" width="52" height="52" rx="10"/>
+        <rect class="s8-c on" x="256" y="132" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="318" y="132" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="380" y="132" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="8" y="194" width="52" height="52" rx="10"/>
+        <rect class="s8-c on" x="70" y="194" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="132" y="194" width="52" height="52" rx="10"/>
+        <rect class="s8-c on" x="194" y="194" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="256" y="194" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="318" y="194" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="380" y="194" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="8" y="256" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="70" y="256" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="132" y="256" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="194" y="256" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="256" y="256" width="52" height="52" rx="10"/>
+        <rect class="s8-c on" x="318" y="256" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="380" y="256" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="70" y="318" width="52" height="52" rx="10"/>
+        <rect class="s8-c on" x="132" y="318" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="194" y="318" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="256" y="318" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="318" y="318" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="132" y="380" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="194" y="380" width="52" height="52" rx="10"/>
+        <rect class="s8-c" x="256" y="380" width="52" height="52" rx="10"/>
+<!--/BALL--></g>
+      <rect x="110" y="452" width="220" height="40" rx="12" fill="#fff"/>
+    </svg>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const S = 43.95, a = t => +(t - S).toFixed(3);
+  tl.fromTo(".s8-c", { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)", stagger: { grid: [7, 7], from: "center", amount: 0.8 } }, a(44.05));
+  tl.to(".s8-c.on", { opacity: 0.35, duration: 0.18, ease: "power1.inOut", yoyo: true, repeat: 3, stagger: 0.1 }, a(45.0));
+  tl.fromTo("#s8-t1a", { opacity: 0, filter: "blur(10px)", y: 18 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.22, ease: "expo.out" }, a(45.17));
+  tl.fromTo("#s8-stamp", { scale: 2.4, opacity: 0, rotation: 0 }, { scale: 1, opacity: 1, rotation: -7, duration: 0.24, ease: "power4.in" }, a(46.09));
+  tl.set({}, {}, 2.93);
+  window.__timelines["s08-prediccion"] = tl;
+  </script>
+</template>

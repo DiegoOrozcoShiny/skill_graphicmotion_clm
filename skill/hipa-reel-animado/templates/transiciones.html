@@ -23,24 +23,22 @@
   <script>
   window.__timelines = window.__timelines || {};
   const tl = gsap.timeline({ paused: true });
+  // =================== CONFIGURACIÓN POR VIDEO ===================
   // Wipe modular: los cuadrados del logo cubren la pantalla en el corte y se retiran.
-  // [tiempo del corte, color, origen del barrido]
-  const WIPES = [
-    [7.20, "#64dd00", "start"],
-    [11.85, "#ffffff", "end"],
-    [23.30, "#002aff", "center"],
-    [31.15, "#64dd00", "start"],
-    [46.88, "#002aff", "center"],
-    [56.10, "#64dd00", "end"],
-  ];
-  WIPES.forEach(([t, c, from], i) => {
+  // [segundo del corte (= data-start de la escena que entra), color, origen: "start" | "end" | "center"]
+  // Colores: #64dd00 (verde), #ffffff (blanco), #002aff (azul, al volver de una escena negra).
+  const DURACION = 60;
+  const WIPES = [];
+  // ===============================================================
+  tl.fromTo(".wq", { scale: 0 }, { scale: 0, duration: 0.01 }, 0);
+  WIPES.forEach(([t, c, from]) => {
     tl.set(".wq", { backgroundColor: c }, t - 0.31);
     tl.fromTo(".wq", { scale: 0, rotation: -45 }, { scale: 1.06, rotation: 0, duration: 0.2, ease: "power3.out",
-      stagger: { grid: [11, 6], from, amount: 0.1 }, immediateRender: i === 0 }, t - 0.30);
+      stagger: { grid: [11, 6], from, amount: 0.1 }, immediateRender: false }, t - 0.30);
     tl.to(".wq", { scale: 0, rotation: 45, duration: 0.2, ease: "power3.in",
       stagger: { grid: [11, 6], from, amount: 0.1 } }, t + 0.02);
   });
-  tl.set({}, {}, 60);
+  tl.set({}, {}, DURACION);
   window.__timelines["transiciones"] = tl;
   </script>
 </template>

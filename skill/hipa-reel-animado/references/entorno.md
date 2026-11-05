@@ -1,20 +1,22 @@
-# Entorno sin permisos de instalación (Windows)
+# Entorno (Mac)
 
-Binarios portables en `%USERPROFILE%\tools` (descargar de fuentes oficiales, sin admin):
+Comprueba en silencio:
 
-| Herramienta | Fuente | Carpeta |
-|---|---|---|
-| Node LTS (zip) | nodejs.org/dist | `tools\node` |
-| Python 3.12 (paquete NuGet `python`) | api.nuget.org | `tools\python` (+ `python -m ensurepip`) |
-| ffmpeg essentials | gyan.dev | `tools\ffmpeg\bin` |
-| MinGit 64-bit | github.com/git-for-windows | `tools\git\cmd` |
-
-Paquetes Python: `faster-whisper pymupdf pypdf numpy`.
-
-Cada comando de PowerShell del agente empieza con:
-
-```powershell
-$t="$env:USERPROFILE\tools"; $env:Path="$t\git\cmd;$t\node;$t\python;$t\python\Scripts;$t\ffmpeg\bin;$env:Path"
+```bash
+node -v        # 22 o superior
+python3 --version
+ffmpeg -version | head -1
+git --version
+python3 -c "import faster_whisper, numpy" 2>/dev/null && echo whisper-ok
+ls ~/.claude/skills/hyperframes/SKILL.md ~/.claude/skills/media-use 2>/dev/null
 ```
 
-`hyperframes doctor` marcará Docker y whisper-cpp como ausentes: son opcionales.
+Si falta algo:
+
+| Falta | Comando |
+|---|---|
+| Node 22+, ffmpeg, git | `brew install node ffmpeg git` (Homebrew: https://brew.sh) |
+| faster-whisper | `python3 -m pip install --user faster-whisper numpy`. Si pip responde "externally-managed-environment", crea un entorno: `python3 -m venv ~/.hipa-reel-venv && ~/.hipa-reel-venv/bin/pip install faster-whisper numpy` y usa `~/.hipa-reel-venv/bin/python` en lugar de `python3` para los scripts |
+| Skills de HyperFrames | `npx hyperframes skills` y luego `npx hyperframes doctor` (Docker y whisper-cpp son opcionales) |
+
+La primera transcripción descarga el modelo `medium` de Whisper (~1,5 GB, una sola vez). En Apple Silicon tarda 1–3 min por minuto de audio.

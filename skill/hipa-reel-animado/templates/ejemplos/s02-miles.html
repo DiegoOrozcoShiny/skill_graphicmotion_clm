@@ -1,0 +1,93 @@
+<template>
+  <style>
+/*FONTS*/
+@font-face{font-family:'Barlow';font-weight:700;font-display:block;src:url('assets/fonts/Barlow-700.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:800;font-display:block;src:url('assets/fonts/Barlow-800.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-weight:900;font-display:block;src:url('assets/fonts/Barlow-900.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:500;font-display:block;src:url('assets/fonts/Figtree-500.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:700;font-display:block;src:url('assets/fonts/Figtree-700.woff2') format('woff2');}
+@font-face{font-family:'Figtree';font-weight:800;font-display:block;src:url('assets/fonts/Figtree-800.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:500;font-display:block;src:url('assets/fonts/SpaceGrotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+/*/FONTS*/
+    #root { position: absolute; inset: 0; color: #fff; font-family: 'Figtree'; overflow: hidden; }
+    .tag { position: absolute; left: 72px; top: 196px; font: 500 32px/1 'Space Grotesk'; letter-spacing: .02em; color: rgba(255,255,255,.72); }
+    .ttl { position: absolute; left: 72px; right: 72px; top: 430px; font: 900 128px/.92 'Barlow'; text-transform: uppercase; letter-spacing: -.01em; }
+    .ln { display: block; }
+    .g { color: #64dd00; }
+
+    #s2-grid { position: absolute; left: 60px; top: 780px; width: 800px; height: 500px; overflow: visible; }
+    .s2-u { fill: none; stroke: #fff; stroke-width: 6; }
+    .s2-u.on { fill: #64dd00; stroke: #64dd00; }
+    #s2-mx { position: absolute; left: 660px; top: 694px; padding: 14px 30px 10px; background: #64dd00; color: #000; border-radius: 999px; font: 900 52px/1 'Barlow'; letter-spacing: .03em; }
+    #s2-real { position: absolute; left: 110px; top: 1130px; padding: 22px 34px 16px; background: #fff; color: #000; border-radius: 24px; font: 900 78px/1 'Barlow'; text-transform: uppercase; white-space: nowrap; }
+    #s2-real .g { color: #002aff; }
+  </style>
+  <div id="root" data-composition-id="s02-miles" data-width="1080" data-height="1920">
+    <div class="tag" id="s2-tag">// 02 · el contexto</div>
+    <div class="ttl" id="s2-t1"><span class="ln" id="s2-t1a">Miles de</span><span class="ln g" id="s2-t1b">estudiantes</span></div>
+    <svg id="s2-grid" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <g id="s2-st"><circle cx="50" cy="26" r="17"/><rect x="24" y="50" width="52" height="40" rx="14"/></g>
+      </defs>
+      <!--GRID-->
+<use class="s2-u" href="#s2-st" x="0" y="0"/>
+      <use class="s2-u" href="#s2-st" x="100" y="0"/>
+      <use class="s2-u" href="#s2-st" x="200" y="0"/>
+      <use class="s2-u on" href="#s2-st" x="300" y="0"/>
+      <use class="s2-u" href="#s2-st" x="400" y="0"/>
+      <use class="s2-u" href="#s2-st" x="500" y="0"/>
+      <use class="s2-u" href="#s2-st" x="600" y="0"/>
+      <use class="s2-u" href="#s2-st" x="700" y="0"/>
+      <use class="s2-u" href="#s2-st" x="0" y="100"/>
+      <use class="s2-u on" href="#s2-st" x="100" y="100"/>
+      <use class="s2-u" href="#s2-st" x="200" y="100"/>
+      <use class="s2-u" href="#s2-st" x="300" y="100"/>
+      <use class="s2-u" href="#s2-st" x="400" y="100"/>
+      <use class="s2-u" href="#s2-st" x="500" y="100"/>
+      <use class="s2-u on" href="#s2-st" x="600" y="100"/>
+      <use class="s2-u" href="#s2-st" x="700" y="100"/>
+      <use class="s2-u" href="#s2-st" x="0" y="200"/>
+      <use class="s2-u" href="#s2-st" x="100" y="200"/>
+      <use class="s2-u" href="#s2-st" x="200" y="200"/>
+      <use class="s2-u" href="#s2-st" x="300" y="200"/>
+      <use class="s2-u on" href="#s2-st" x="400" y="200"/>
+      <use class="s2-u" href="#s2-st" x="500" y="200"/>
+      <use class="s2-u" href="#s2-st" x="600" y="200"/>
+      <use class="s2-u" href="#s2-st" x="700" y="200"/>
+      <use class="s2-u" href="#s2-st" x="0" y="300"/>
+      <use class="s2-u" href="#s2-st" x="100" y="300"/>
+      <use class="s2-u" href="#s2-st" x="200" y="300"/>
+      <use class="s2-u on" href="#s2-st" x="300" y="300"/>
+      <use class="s2-u" href="#s2-st" x="400" y="300"/>
+      <use class="s2-u" href="#s2-st" x="500" y="300"/>
+      <use class="s2-u" href="#s2-st" x="600" y="300"/>
+      <use class="s2-u" href="#s2-st" x="700" y="300"/>
+      <use class="s2-u" href="#s2-st" x="0" y="400"/>
+      <use class="s2-u on" href="#s2-st" x="100" y="400"/>
+      <use class="s2-u" href="#s2-st" x="200" y="400"/>
+      <use class="s2-u" href="#s2-st" x="300" y="400"/>
+      <use class="s2-u" href="#s2-st" x="400" y="400"/>
+      <use class="s2-u" href="#s2-st" x="500" y="400"/>
+      <use class="s2-u on" href="#s2-st" x="600" y="400"/>
+      <use class="s2-u" href="#s2-st" x="700" y="400"/>
+<!--/GRID-->
+    </svg>
+    <div id="s2-mx">MÉXICO</div>
+    <div id="s2-real">¡Ya es <span class="g">realidad!</span></div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const S = 7.2, a = t => +(t - S).toFixed(3);
+
+  tl.fromTo(["#s2-t1a", "#s2-t1b"], { opacity: 0, filter: "blur(10px)", y: 18 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.22, ease: "expo.out", stagger: 0.5 }, a(7.5));
+  tl.fromTo(".s2-u", { scale: 0, opacity: 0, transformOrigin: "50% 50%" },
+    { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)", stagger: { grid: [5, 8], from: "start", amount: 1.4 } }, a(7.5));
+  tl.fromTo("#s2-mx", { scale: 0.3, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.45, ease: "back.out(2)" }, a(8.56));
+  tl.fromTo("#s2-real", { scale: 1.8, opacity: 0, rotation: 2 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.26, ease: "power4.in" }, a(10.92));
+
+  tl.set({}, {}, 4.65);
+  window.__timelines["s02-miles"] = tl;
+  </script>
+</template>

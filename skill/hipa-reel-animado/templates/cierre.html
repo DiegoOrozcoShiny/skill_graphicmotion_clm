@@ -1,0 +1,37 @@
+<template>
+  <!-- CIERRE FIJO DE ACADEMIA HIPA: no cambiar textos ni orden. Dura 3.5 s. -->
+  <style>
+/*FONTS*/
+    #root { position: absolute; inset: 0; color: #fff; font-family: 'Figtree'; overflow: hidden; background: #002aff; }
+    #c-t1 { position: absolute; left: 72px; top: 400px; font: 900 158px/1 'Barlow'; color: #64dd00; letter-spacing: -.01em; }
+    #c-t2 { position: absolute; left: 72px; right: 72px; top: 575px; font: 800 84px/1.04 'Barlow'; text-transform: uppercase; }
+    .c-w { display: inline-block; }
+    #c-share { position: absolute; left: 72px; top: 830px; width: 140px; height: 140px; overflow: visible; }
+    #c-sig { position: absolute; left: 72px; top: 1030px; font: 800 52px/1 'Barlow'; text-transform: uppercase; }
+    #c-logo { position: absolute; left: 72px; top: 1110px; width: 360px; height: auto; }
+    #c-handle { position: absolute; left: 72px; top: 1262px; font: 700 44px/1 'Figtree'; color: #64dd00; }
+  </style>
+  <div id="root" data-composition-id="cierre" data-width="1080" data-height="1920">
+    <div id="c-t1">MÁNDASELO</div>
+    <div id="c-t2"><span class="c-w">a</span> <span class="c-w">quien</span> <span class="c-w">lo</span> <span class="c-w" style="color:#64dd00">necesite</span></div>
+    <svg id="c-share" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="75" cy="75" r="72" fill="#fff"/>
+      <path d="M34 72 L114 38 L92 116 L72 88 Z" fill="#002aff" stroke="#002aff" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M72 88 L114 38" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    <div id="c-sig">Síguenos</div>
+    <img id="c-logo" src="assets/img/logo-hipa-blanco.png" alt="Academia HIPA">
+    <div id="c-handle">@academia.hipa</div>
+  </div>
+  <script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo("#c-t1", { scale: 1.6, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.28, ease: "power4.in" }, 0.1);
+  tl.fromTo(".c-w", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out", stagger: 0.06 }, 0.42);
+  tl.fromTo("#c-share", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.2)" }, 0.75);
+  tl.fromTo(["#c-sig", "#c-logo", "#c-handle"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out", stagger: 0.1 }, 1.0);
+  tl.to("#c-share", { x: 16, y: -16, duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, 1.6);
+  tl.set({}, {}, 3.5);
+  window.__timelines["cierre"] = tl;
+  </script>
+</template>
