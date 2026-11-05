@@ -26,8 +26,16 @@ npx hyperframes check
 npx hyperframes render . -o ../render/celular-en-clase.mp4 --quality looks
 ```
 
-## Usar el skill en Claude Code
-Copia `skill/hipa-reel-animado/` a `~/.claude/skills/` y pide: *"Hagamos otro reel animado HIPA con este audio"*.
+## Instalar el skill en Claude Code (Mac)
+
+```bash
+git clone <URL de este repositorio> hipa-reel
+mkdir -p ~/.claude/skills && cp -R hipa-reel/skill/hipa-reel-animado ~/.claude/skills/
+npx hyperframes skills
+python3 -m pip install --user faster-whisper numpy
+```
+
+Abre Claude Code y escribe `/hipa-reel-animado`. Te pedirá el audio y, antes de producir, te mandará un storyboard con imágenes para que lo apruebes. Al final entrega el MP4.
 
 ## Flujo (por fases, con aprobación en cada una)
 1. Entorno → 2. Análisis (video de referencia, manual de marca, audio) → 3. Edición de voz (silencios ≤ 0,25 s, sin acelerar) → 4. Storyboard + avatar → 5. Animación, revisión de fotogramas y render.
