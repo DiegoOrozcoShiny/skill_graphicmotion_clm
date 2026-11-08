@@ -12,21 +12,19 @@ Antes de escribir composiciones, lee el skill `hyperframes` (contrato de render)
 ## 0. Al invocarlo
 
 1. Si el usuario no adjuntó audio, **pídelo**: "Mándame el audio (ruta del archivo o arrástralo aquí: .m4a, .mp3, .wav, .mp4…)". No hagas nada más hasta tenerlo.
-2. Comprueba el entorno en silencio (`references/entorno.md`). Si falta algo, dilo con el comando exacto para instalarlo y espera.
-3. Crea la carpeta del video en `~/Movies/HIPA Reels/<AAAA-MM-DD>-<tema-corto>/` (el tema sale del audio en el paso 1). Todo se trabaja ahí.
+2. Detecta el sistema y comprueba el entorno en silencio (`references/entorno.md`: Mac o Windows). Si falta algo, dilo con el comando exacto y espera.
+   - **Mac:** `PY=python3` (o `~/.hipa-reel-venv/bin/python` si se creó el venv).
+   - **Windows:** `PY=python`. Si existe `%USERPROFILE%\tools`, antepón sus carpetas al PATH en cada comando (`references/entorno.md`).
 
 ## 1. Audio (automático, sin pedir OK)
 
+Un solo comando hace todo: proyecto HyperFrames, voz original, transcripción, recorte de silencios, verificación y movimiento de boca.
+
 ```bash
-P="<carpeta del video>"
-npx hyperframes init "$P/video" --skip-skills --skill=hyperframes
-python3 "$SKILL_DIR/scripts/setup_project.py" "$SKILL_DIR" "$P" "<audio del usuario>"
-python3 "$SKILL_DIR/scripts/transcribe.py" "$P/audio/voz_original.wav" "$P/audio/transcripcion.json"
-python3 "$SKILL_DIR/scripts/cut_silence.py" "$P/audio/voz_original.wav" "$P/audio/voz_editada.wav" "$P/audio/transcripcion.json" "$P/audio/transcripcion_editada.json" -38
-python3 "$SKILL_DIR/scripts/transcribe.py" "$P/audio/voz_editada.wav" "$P/audio/verificacion.json"
-cp "$P/audio/voz_editada.wav" "$P/video/assets/audio/voz.wav"
-python3 "$SKILL_DIR/scripts/mouth.py" "$P/video/assets/audio/voz.wav" "$P/video/assets/mouth.json"
+$PY "$SKILL_DIR/scripts/fase_audio.py" "<audio del usuario>" "reel"
 ```
+
+Imprime `PROYECTO=<carpeta>` (en `~/Movies/HIPA Reels/` en Mac o en `%USERPROFILE%\Videos\HIPA Reels\` en Windows), la duración de la voz editada y la del video. En adelante, `P` es esa carpeta. Al leer la transcripción, renombra la carpeta con el tema (`AAAA-MM-DD-<tema-corto>`) y actualiza `P`.
 
 - Silencios: como máximo 0,25 s entre frases. **Nunca aceleres la voz.**
 - Compara `verificacion.txt` con `transcripcion.txt`: deben estar todas las palabras. Si falta alguna, el recorte fue agresivo (ver `references/lecciones.md`).
@@ -45,7 +43,7 @@ Pregunta: "¿Te gusta así o cambio algo?" y **no produzcas el video hasta que e
 1. Termina la animación de cada escena (`references/estilo.md` y `references/escenas.md`).
 2. Maestro: rellena `DURACION`, `POSES`, `ACERCAMIENTOS` y `CIERRE` en `compositions/maestro.html` (`references/maestro.md`). Nunca cambies su diseño.
 3. Transiciones: `DURACION` y `WIPES` en `compositions/transiciones.html`. Cierre: `compositions/cierre.html` tal cual (texto fijo).
-4. Subtítulos: `python3 "$SKILL_DIR/scripts/gen_subtitulos.py" "$P"`. Inyección de fuentes y boca: `python3 "$SKILL_DIR/scripts/inject.py" "$P/video"`.
+4. Subtítulos: `$PY "$SKILL_DIR/scripts/gen_subtitulos.py" "$P"`. Inyección de fuentes y boca: `$PY "$SKILL_DIR/scripts/inject.py" "$P/video"`.
 5. Efectos de sonido en `index.html` (`references/estilo.md` → Sonido). Sin música.
 6. `cd "$P/video" && npx hyperframes check --json` → 0 errores; revisa los avisos de lectura y solapamiento.
 7. `npx hyperframes snapshot --at <momentos clave>` y **mira** las imágenes: nada tapado, nada sobre la cabeza del maestro, textos legibles antes de cada transición, mano visible. Corrige y repite.
@@ -53,7 +51,7 @@ Pregunta: "¿Te gusta así o cambio algo?" y **no produzcas el video hasta que e
 
 ## 4. Entrega
 
-Solo el MP4: ruta del archivo, `open "<ruta>"` para verlo, y 3–4 líneas de qué lleva. Di que el audio se midió, no que se escuchó. Pregunta si quiere algún ajuste.
+Solo el MP4: ruta del archivo, `open "<ruta>"` (Mac) o `start "" "<ruta>"` (Windows) para verlo, y 3–4 líneas de qué lleva. Di que el audio se midió, no que se escuchó. Pregunta si quiere algún ajuste.
 
 ## Reglas que no se rompen
 

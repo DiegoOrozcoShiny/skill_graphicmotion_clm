@@ -19,7 +19,7 @@ El usuario valida **imágenes reales del video**, no bocetos. Por eso, en esta f
 cd "$P/video"
 npx hyperframes snapshot --at <un segundo por escena, cuando todo ya aterrizó (≈ 80 % de la escena)>,<VOZ+2.5>
 ```
-- El comando devuelve `contact-sheet-*.jpg`. Cópialos a `$P/storyboard/` y ábrelos con `open "$P/storyboard/"`.
+- El comando devuelve `contact-sheet-*.jpg`. Cópialos a `$P/storyboard/` y ábrelos con `open "$P/storyboard/"` (Mac) o `start "" "$P\storyboard"` (Windows).
 - Mira tú las imágenes antes de mandarlas. Si algo se tapa, se sale o queda sobre el maestro, corrígelo primero.
 
 ## 4. Mensaje al usuario
